@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSLCertBundleGenerator", "SSLCertBundleGenerator\SSLCertBundleGenerator.csproj", "{52362ADE-433B-4990-A3CE-02C09751139B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{923043A3-5510-4652-8B44-18F311357887}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		COPYING = COPYING
+		GitAssemblyVersion.targets = GitAssemblyVersion.targets
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{297F7C99-B33D-444F-AB2C-D342F44D8BFC}"
+	ProjectSection(SolutionItems) = preProject
+		.build\MSBuild.Community.Tasks.dll = .build\MSBuild.Community.Tasks.dll
+		.build\MSBuild.Community.Tasks.Targets = .build\MSBuild.Community.Tasks.Targets
+		.build\MSBuild.Community.Tasks.xml = .build\MSBuild.Community.Tasks.xml
+		.build\MSBuild.Community.Tasks.xsd = .build\MSBuild.Community.Tasks.xsd
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisruptiveSoftware.Cryptography", "DisruptiveSoftware.Cryptography\DisruptiveSoftware.Cryptography\DisruptiveSoftware.Cryptography.csproj", "{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{55847A1E-D171-4101-B7AA-6BA80C02566C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\Nuget.sh = .nuget\Nuget.sh
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52362ADE-433B-4990-A3CE-02C09751139B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52362ADE-433B-4990-A3CE-02C09751139B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52362ADE-433B-4990-A3CE-02C09751139B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52362ADE-433B-4990-A3CE-02C09751139B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C5963CC-D395-43F0-8A7B-5AF0F0C6F07E}
+	EndGlobalSection
+EndGlobal

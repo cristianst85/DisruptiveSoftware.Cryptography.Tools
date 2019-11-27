@@ -1,0 +1,4 @@
+[submodule "DisruptiveSoftware.Cryptography"]
+	path = DisruptiveSoftware.Cryptography
+	url = https://github.com/cristianst85/DisruptiveSoftware.Cryptography.git
+	branch = master
