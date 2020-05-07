@@ -345,6 +345,7 @@
             this.statusStrip.Location = new System.Drawing.Point(0, 528);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(344, 22);
+            this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 28;
             // 
             // toolStripStatusLabel
