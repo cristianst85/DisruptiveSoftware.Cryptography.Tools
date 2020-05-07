@@ -474,7 +474,7 @@
             this.MaximizeBox = false;
             this.Name = "FormSSLCertBundleGenerator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SSLCertBundleGenerator";
+            this.Text = "SSLCertBundleGenerator {version}";
             this.groupBoxSSLOptions.ResumeLayout(false);
             this.groupBoxSSLOptions.PerformLayout();
             this.groupBoxExportOptions.ResumeLayout(false);

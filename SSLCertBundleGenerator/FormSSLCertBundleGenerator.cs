@@ -19,6 +19,8 @@ namespace SSLCertBundleGenerator
         {
             InitializeComponent();
 
+            this.Text = this.Text.Replace("{version}", AssemblyUtils.GetVersion().ToString(3));
+
             this.toolStripStatusLabel.Text = string.Empty;
 
             this.comboBoxKeySize.Items.Add(X509Constants.RSAKeySize.KeySize1024);
