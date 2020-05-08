@@ -113,7 +113,7 @@
             // labelSAN
             // 
             this.labelSAN.AutoSize = true;
-            this.labelSAN.Location = new System.Drawing.Point(27, 22);
+            this.labelSAN.Location = new System.Drawing.Point(30, 22);
             this.labelSAN.Name = "labelSAN";
             this.labelSAN.Size = new System.Drawing.Size(37, 13);
             this.labelSAN.TabIndex = 19;
@@ -145,7 +145,7 @@
             // buttonToogleShowPassword
             // 
             this.buttonToogleShowPassword.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonToogleShowPassword.Location = new System.Drawing.Point(281, 29);
+            this.buttonToogleShowPassword.Location = new System.Drawing.Point(280, 29);
             this.buttonToogleShowPassword.Name = "buttonToogleShowPassword";
             this.buttonToogleShowPassword.Size = new System.Drawing.Size(34, 20);
             this.buttonToogleShowPassword.TabIndex = 25;
@@ -156,7 +156,7 @@
             // labelSavePath
             // 
             this.labelSavePath.AutoSize = true;
-            this.labelSavePath.Location = new System.Drawing.Point(4, 97);
+            this.labelSavePath.Location = new System.Drawing.Point(7, 97);
             this.labelSavePath.Name = "labelSavePath";
             this.labelSavePath.Size = new System.Drawing.Size(60, 13);
             this.labelSavePath.TabIndex = 27;
@@ -174,7 +174,7 @@
             // 
             // textBoxSavePath
             // 
-            this.textBoxSavePath.Location = new System.Drawing.Point(65, 94);
+            this.textBoxSavePath.Location = new System.Drawing.Point(70, 94);
             this.textBoxSavePath.Name = "textBoxSavePath";
             this.textBoxSavePath.Size = new System.Drawing.Size(205, 20);
             this.textBoxSavePath.TabIndex = 28;
@@ -200,7 +200,7 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(12, 33);
+            this.labelPassword.Location = new System.Drawing.Point(11, 33);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(56, 13);
             this.labelPassword.TabIndex = 23;
@@ -226,7 +226,7 @@
             // labelO
             // 
             this.labelO.AutoSize = true;
-            this.labelO.Location = new System.Drawing.Point(31, 50);
+            this.labelO.Location = new System.Drawing.Point(33, 50);
             this.labelO.Name = "labelO";
             this.labelO.Size = new System.Drawing.Size(69, 13);
             this.labelO.TabIndex = 7;
@@ -235,7 +235,7 @@
             // labelC
             // 
             this.labelC.AutoSize = true;
-            this.labelC.Location = new System.Drawing.Point(54, 102);
+            this.labelC.Location = new System.Drawing.Point(56, 102);
             this.labelC.Name = "labelC";
             this.labelC.Size = new System.Drawing.Size(46, 13);
             this.labelC.TabIndex = 11;
@@ -267,7 +267,7 @@
             // labelCN
             // 
             this.labelCN.AutoSize = true;
-            this.labelCN.Location = new System.Drawing.Point(18, 24);
+            this.labelCN.Location = new System.Drawing.Point(20, 24);
             this.labelCN.Name = "labelCN";
             this.labelCN.Size = new System.Drawing.Size(82, 13);
             this.labelCN.TabIndex = 5;
@@ -289,7 +289,7 @@
             // 
             // buttonGenerate
             // 
-            this.buttonGenerate.Location = new System.Drawing.Point(131, 492);
+            this.buttonGenerate.Location = new System.Drawing.Point(134, 492);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(75, 23);
             this.buttonGenerate.TabIndex = 30;
@@ -428,7 +428,7 @@
             // labelSerialNumber
             // 
             this.labelSerialNumber.AutoSize = true;
-            this.labelSerialNumber.Location = new System.Drawing.Point(27, 21);
+            this.labelSerialNumber.Location = new System.Drawing.Point(27, 22);
             this.labelSerialNumber.Name = "labelSerialNumber";
             this.labelSerialNumber.Size = new System.Drawing.Size(76, 13);
             this.labelSerialNumber.TabIndex = 13;
