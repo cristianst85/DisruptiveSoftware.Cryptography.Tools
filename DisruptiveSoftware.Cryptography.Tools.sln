@@ -24,12 +24,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{297F7C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisruptiveSoftware.Cryptography", "DisruptiveSoftware.Cryptography\DisruptiveSoftware.Cryptography\DisruptiveSoftware.Cryptography.csproj", "{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{55847A1E-D171-4101-B7AA-6BA80C02566C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F582A57E-EAE8-45EF-A20D-6E52081D560A}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\Nuget.sh = .nuget\Nuget.sh
-		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Global
