@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F582A5
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertUtil", "CertUtil\CertUtil.csproj", "{0006E6C7-5FC9-476A-8E7D-51F17DA53344}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2F5FBF1-F3F2-4D30-BCB1-3F5BBB0F9634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0006E6C7-5FC9-476A-8E7D-51F17DA53344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0006E6C7-5FC9-476A-8E7D-51F17DA53344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0006E6C7-5FC9-476A-8E7D-51F17DA53344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0006E6C7-5FC9-476A-8E7D-51F17DA53344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
