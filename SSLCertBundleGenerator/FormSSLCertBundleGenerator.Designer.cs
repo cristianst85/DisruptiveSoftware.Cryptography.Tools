@@ -86,7 +86,7 @@
             this.groupBoxSSLOptions.Location = new System.Drawing.Point(12, 271);
             this.groupBoxSSLOptions.Name = "groupBoxSSLOptions";
             this.groupBoxSSLOptions.Size = new System.Drawing.Size(320, 82);
-            this.groupBoxSSLOptions.TabIndex = 3;
+            this.groupBoxSSLOptions.TabIndex = 19;
             this.groupBoxSSLOptions.TabStop = false;
             this.groupBoxSSLOptions.Text = "SSL Options";
             // 
@@ -96,7 +96,7 @@
             this.checkBoxClientAuthentication.Location = new System.Drawing.Point(145, 54);
             this.checkBoxClientAuthentication.Name = "checkBoxClientAuthentication";
             this.checkBoxClientAuthentication.Size = new System.Drawing.Size(123, 17);
-            this.checkBoxClientAuthentication.TabIndex = 22;
+            this.checkBoxClientAuthentication.TabIndex = 23;
             this.checkBoxClientAuthentication.Text = "Client Authentication";
             this.checkBoxClientAuthentication.UseVisualStyleBackColor = true;
             // 
@@ -106,7 +106,7 @@
             this.checkBoxServerAuthentication.Location = new System.Drawing.Point(11, 54);
             this.checkBoxServerAuthentication.Name = "checkBoxServerAuthentication";
             this.checkBoxServerAuthentication.Size = new System.Drawing.Size(128, 17);
-            this.checkBoxServerAuthentication.TabIndex = 21;
+            this.checkBoxServerAuthentication.TabIndex = 22;
             this.checkBoxServerAuthentication.Text = "Server Authentication";
             this.checkBoxServerAuthentication.UseVisualStyleBackColor = true;
             // 
@@ -116,7 +116,7 @@
             this.labelSAN.Location = new System.Drawing.Point(30, 22);
             this.labelSAN.Name = "labelSAN";
             this.labelSAN.Size = new System.Drawing.Size(37, 13);
-            this.labelSAN.TabIndex = 19;
+            this.labelSAN.TabIndex = 20;
             this.labelSAN.Text = "SANs:";
             // 
             // textBoxSAN
@@ -124,7 +124,7 @@
             this.textBoxSAN.Location = new System.Drawing.Point(70, 19);
             this.textBoxSAN.Name = "textBoxSAN";
             this.textBoxSAN.Size = new System.Drawing.Size(205, 20);
-            this.textBoxSAN.TabIndex = 20;
+            this.textBoxSAN.TabIndex = 21;
             // 
             // groupBoxExportOptions
             // 
@@ -138,7 +138,7 @@
             this.groupBoxExportOptions.Location = new System.Drawing.Point(12, 359);
             this.groupBoxExportOptions.Name = "groupBoxExportOptions";
             this.groupBoxExportOptions.Size = new System.Drawing.Size(320, 127);
-            this.groupBoxExportOptions.TabIndex = 4;
+            this.groupBoxExportOptions.TabIndex = 24;
             this.groupBoxExportOptions.TabStop = false;
             this.groupBoxExportOptions.Text = "Export Options";
             // 
@@ -148,7 +148,7 @@
             this.buttonToogleShowPassword.Location = new System.Drawing.Point(280, 29);
             this.buttonToogleShowPassword.Name = "buttonToogleShowPassword";
             this.buttonToogleShowPassword.Size = new System.Drawing.Size(34, 20);
-            this.buttonToogleShowPassword.TabIndex = 25;
+            this.buttonToogleShowPassword.TabIndex = 27;
             this.buttonToogleShowPassword.Text = "···";
             this.buttonToogleShowPassword.UseVisualStyleBackColor = true;
             this.buttonToogleShowPassword.Click += new System.EventHandler(this.ButtonShowPassword_Click);
@@ -159,7 +159,7 @@
             this.labelSavePath.Location = new System.Drawing.Point(7, 97);
             this.labelSavePath.Name = "labelSavePath";
             this.labelSavePath.Size = new System.Drawing.Size(60, 13);
-            this.labelSavePath.TabIndex = 27;
+            this.labelSavePath.TabIndex = 29;
             this.labelSavePath.Text = "Save Path:";
             // 
             // buttonBrowseSavePath
@@ -167,7 +167,7 @@
             this.buttonBrowseSavePath.Location = new System.Drawing.Point(280, 93);
             this.buttonBrowseSavePath.Name = "buttonBrowseSavePath";
             this.buttonBrowseSavePath.Size = new System.Drawing.Size(34, 20);
-            this.buttonBrowseSavePath.TabIndex = 29;
+            this.buttonBrowseSavePath.TabIndex = 31;
             this.buttonBrowseSavePath.Text = "...";
             this.buttonBrowseSavePath.UseVisualStyleBackColor = true;
             this.buttonBrowseSavePath.Click += new System.EventHandler(this.ButtonBrowse_Click);
@@ -177,7 +177,7 @@
             this.textBoxSavePath.Location = new System.Drawing.Point(70, 94);
             this.textBoxSavePath.Name = "textBoxSavePath";
             this.textBoxSavePath.Size = new System.Drawing.Size(205, 20);
-            this.textBoxSavePath.TabIndex = 28;
+            this.textBoxSavePath.TabIndex = 30;
             // 
             // checkBoxCertExpCrt
             // 
@@ -185,7 +185,7 @@
             this.checkBoxCertExpCrt.Location = new System.Drawing.Point(11, 65);
             this.checkBoxCertExpCrt.Name = "checkBoxCertExpCrt";
             this.checkBoxCertExpCrt.Size = new System.Drawing.Size(258, 17);
-            this.checkBoxCertExpCrt.TabIndex = 26;
+            this.checkBoxCertExpCrt.TabIndex = 28;
             this.checkBoxCertExpCrt.Text = "Export Public Key Certificate to binary format (.crt)";
             this.checkBoxCertExpCrt.UseVisualStyleBackColor = true;
             // 
@@ -194,7 +194,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(70, 30);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(205, 20);
-            this.textBoxPassword.TabIndex = 24;
+            this.textBoxPassword.TabIndex = 26;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // labelPassword
@@ -203,7 +203,7 @@
             this.labelPassword.Location = new System.Drawing.Point(11, 33);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(56, 13);
-            this.labelPassword.TabIndex = 23;
+            this.labelPassword.TabIndex = 25;
             this.labelPassword.Text = "Password:";
             // 
             // groupBoxSubjectDN
@@ -229,7 +229,7 @@
             this.labelO.Location = new System.Drawing.Point(33, 50);
             this.labelO.Name = "labelO";
             this.labelO.Size = new System.Drawing.Size(69, 13);
-            this.labelO.TabIndex = 7;
+            this.labelO.TabIndex = 4;
             this.labelO.Text = "Organization:";
             // 
             // labelC
@@ -238,7 +238,7 @@
             this.labelC.Location = new System.Drawing.Point(56, 102);
             this.labelC.Name = "labelC";
             this.labelC.Size = new System.Drawing.Size(46, 13);
-            this.labelC.TabIndex = 11;
+            this.labelC.TabIndex = 8;
             this.labelC.Text = "Country:";
             // 
             // labelOU
@@ -247,7 +247,7 @@
             this.labelOU.Location = new System.Drawing.Point(11, 76);
             this.labelOU.Name = "labelOU";
             this.labelOU.Size = new System.Drawing.Size(91, 13);
-            this.labelOU.TabIndex = 9;
+            this.labelOU.TabIndex = 6;
             this.labelOU.Text = "Organization Unit:";
             // 
             // textBoxCN
@@ -255,14 +255,14 @@
             this.textBoxCN.Location = new System.Drawing.Point(108, 21);
             this.textBoxCN.Name = "textBoxCN";
             this.textBoxCN.Size = new System.Drawing.Size(115, 20);
-            this.textBoxCN.TabIndex = 6;
+            this.textBoxCN.TabIndex = 3;
             // 
             // textBoxOU
             // 
             this.textBoxOU.Location = new System.Drawing.Point(108, 73);
             this.textBoxOU.Name = "textBoxOU";
             this.textBoxOU.Size = new System.Drawing.Size(115, 20);
-            this.textBoxOU.TabIndex = 10;
+            this.textBoxOU.TabIndex = 7;
             // 
             // labelCN
             // 
@@ -270,7 +270,7 @@
             this.labelCN.Location = new System.Drawing.Point(20, 24);
             this.labelCN.Name = "labelCN";
             this.labelCN.Size = new System.Drawing.Size(82, 13);
-            this.labelCN.TabIndex = 5;
+            this.labelCN.TabIndex = 2;
             this.labelCN.Text = "Common Name:";
             // 
             // textBoxO
@@ -278,21 +278,21 @@
             this.textBoxO.Location = new System.Drawing.Point(108, 47);
             this.textBoxO.Name = "textBoxO";
             this.textBoxO.Size = new System.Drawing.Size(115, 20);
-            this.textBoxO.TabIndex = 8;
+            this.textBoxO.TabIndex = 5;
             // 
             // textBoxC
             // 
             this.textBoxC.Location = new System.Drawing.Point(108, 99);
             this.textBoxC.Name = "textBoxC";
             this.textBoxC.Size = new System.Drawing.Size(115, 20);
-            this.textBoxC.TabIndex = 12;
+            this.textBoxC.TabIndex = 9;
             // 
             // buttonGenerate
             // 
             this.buttonGenerate.Location = new System.Drawing.Point(134, 492);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(75, 23);
-            this.buttonGenerate.TabIndex = 30;
+            this.buttonGenerate.TabIndex = 32;
             this.buttonGenerate.Text = "Generate";
             this.buttonGenerate.UseVisualStyleBackColor = true;
             this.buttonGenerate.Click += new System.EventHandler(this.ButtonGenerate_Click);
@@ -305,7 +305,7 @@
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(344, 24);
-            this.mainMenu.TabIndex = 26;
+            this.mainMenu.TabIndex = 33;
             this.mainMenu.Text = "menuStrip1";
             // 
             // toolStripMenuFile
@@ -346,7 +346,7 @@
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(344, 22);
             this.statusStrip.SizingGrip = false;
-            this.statusStrip.TabIndex = 28;
+            this.statusStrip.TabIndex = 34;
             // 
             // toolStripStatusLabel
             // 
@@ -367,7 +367,7 @@
             this.groupBoxCertificateOptions.Location = new System.Drawing.Point(11, 163);
             this.groupBoxCertificateOptions.Name = "groupBoxCertificateOptions";
             this.groupBoxCertificateOptions.Size = new System.Drawing.Size(320, 102);
-            this.groupBoxCertificateOptions.TabIndex = 2;
+            this.groupBoxCertificateOptions.TabIndex = 10;
             this.groupBoxCertificateOptions.TabStop = false;
             this.groupBoxCertificateOptions.Text = "Certificate Options";
             // 
@@ -377,7 +377,7 @@
             this.labelBits.Location = new System.Drawing.Point(230, 49);
             this.labelBits.Name = "labelBits";
             this.labelBits.Size = new System.Drawing.Size(23, 13);
-            this.labelBits.TabIndex = 28;
+            this.labelBits.TabIndex = 15;
             this.labelBits.Text = "bits";
             // 
             // labelMonths
@@ -386,7 +386,7 @@
             this.labelMonths.Location = new System.Drawing.Point(230, 76);
             this.labelMonths.Name = "labelMonths";
             this.labelMonths.Size = new System.Drawing.Size(41, 13);
-            this.labelMonths.TabIndex = 27;
+            this.labelMonths.TabIndex = 18;
             this.labelMonths.Text = "months";
             // 
             // comboBoxValidity
@@ -396,7 +396,7 @@
             this.comboBoxValidity.Location = new System.Drawing.Point(109, 73);
             this.comboBoxValidity.Name = "comboBoxValidity";
             this.comboBoxValidity.Size = new System.Drawing.Size(115, 21);
-            this.comboBoxValidity.TabIndex = 18;
+            this.comboBoxValidity.TabIndex = 17;
             // 
             // labelValidity
             // 
@@ -404,7 +404,7 @@
             this.labelValidity.Location = new System.Drawing.Point(60, 76);
             this.labelValidity.Name = "labelValidity";
             this.labelValidity.Size = new System.Drawing.Size(43, 13);
-            this.labelValidity.TabIndex = 17;
+            this.labelValidity.TabIndex = 16;
             this.labelValidity.Text = "Validity:";
             // 
             // comboBoxKeySize
@@ -414,7 +414,7 @@
             this.comboBoxKeySize.Location = new System.Drawing.Point(109, 46);
             this.comboBoxKeySize.Name = "comboBoxKeySize";
             this.comboBoxKeySize.Size = new System.Drawing.Size(115, 21);
-            this.comboBoxKeySize.TabIndex = 16;
+            this.comboBoxKeySize.TabIndex = 14;
             // 
             // labelKeySize
             // 
@@ -422,7 +422,7 @@
             this.labelKeySize.Location = new System.Drawing.Point(52, 49);
             this.labelKeySize.Name = "labelKeySize";
             this.labelKeySize.Size = new System.Drawing.Size(51, 13);
-            this.labelKeySize.TabIndex = 15;
+            this.labelKeySize.TabIndex = 13;
             this.labelKeySize.Text = "Key Size:";
             // 
             // labelSerialNumber
@@ -431,7 +431,7 @@
             this.labelSerialNumber.Location = new System.Drawing.Point(27, 22);
             this.labelSerialNumber.Name = "labelSerialNumber";
             this.labelSerialNumber.Size = new System.Drawing.Size(76, 13);
-            this.labelSerialNumber.TabIndex = 13;
+            this.labelSerialNumber.TabIndex = 11;
             this.labelSerialNumber.Text = "Serial Number:";
             // 
             // numericUpDownSerialNumber
@@ -449,7 +449,7 @@
             0});
             this.numericUpDownSerialNumber.Name = "numericUpDownSerialNumber";
             this.numericUpDownSerialNumber.Size = new System.Drawing.Size(115, 20);
-            this.numericUpDownSerialNumber.TabIndex = 14;
+            this.numericUpDownSerialNumber.TabIndex = 12;
             this.numericUpDownSerialNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownSerialNumber.Value = new decimal(new int[] {
             2,
