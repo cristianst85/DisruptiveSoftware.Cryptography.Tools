@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="richTextBoxCopyright.Text" xml:space="preserve">
-    <value>Application icon is from Farm Fresh Icons set.
-Copyright (c) Fatcow Web Hosting. All rights reserved.
+    <value>Application icon is from the Farm-Fresh icon set.
+Copyright (c) 2009 - 2014 Fatcow Web Hosting. All rights reserved.
 https://www.fatcow.com/free-icons
 
 DisruptiveSoftware.Cryptography library v{disruptiveSoftwareCryptographyLibVersion}
