@@ -68,6 +68,7 @@
             this.labelKeySize = new System.Windows.Forms.Label();
             this.labelSerialNumber = new System.Windows.Forms.Label();
             this.numericUpDownSerialNumber = new System.Windows.Forms.NumericUpDown();
+            this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
             this.groupBoxSSLOptions.SuspendLayout();
             this.groupBoxExportOptions.SuspendLayout();
             this.groupBoxSubjectDN.SuspendLayout();
@@ -75,10 +76,12 @@
             this.statusStrip.SuspendLayout();
             this.groupBoxCertificateOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSerialNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxSSLOptions
             // 
+            this.groupBoxSSLOptions.Controls.Add(this.pictureBoxInfo);
             this.groupBoxSSLOptions.Controls.Add(this.checkBoxClientAuthentication);
             this.groupBoxSSLOptions.Controls.Add(this.checkBoxServerAuthentication);
             this.groupBoxSSLOptions.Controls.Add(this.labelSAN);
@@ -457,6 +460,15 @@
             0,
             0});
             // 
+            // pictureBoxInfo
+            // 
+            this.pictureBoxInfo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInfo.Image")));
+            this.pictureBoxInfo.Location = new System.Drawing.Point(280, 21);
+            this.pictureBoxInfo.Name = "pictureBoxInfo";
+            this.pictureBoxInfo.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxInfo.TabIndex = 24;
+            this.pictureBoxInfo.TabStop = false;
+            // 
             // FormSSLCertBundleGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,6 +501,7 @@
             this.groupBoxCertificateOptions.ResumeLayout(false);
             this.groupBoxCertificateOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSerialNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,6 +548,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownSerialNumber;
         private System.Windows.Forms.Label labelMonths;
         private System.Windows.Forms.Label labelBits;
+        private System.Windows.Forms.PictureBox pictureBoxInfo;
     }
 }
 

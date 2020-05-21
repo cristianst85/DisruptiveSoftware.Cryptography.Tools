@@ -27,7 +27,7 @@ namespace SSLCertBundleGenerator
             this.comboBoxKeySize.Items.Add(X509Constants.RSAKeySize.KeySize2048);
             this.comboBoxKeySize.Items.Add(X509Constants.RSAKeySize.KeySize4096);
 
-            this.comboBoxValidity.Items.AddRange(Enumerable.Range(1, 24).Cast<object>().ToArray());           
+            this.comboBoxValidity.Items.AddRange(Enumerable.Range(1, 24).Cast<object>().ToArray());
 
             // Default values.
             this.comboBoxKeySize.SelectedItem = this.comboBoxKeySize.Items[1];
@@ -36,6 +36,8 @@ namespace SSLCertBundleGenerator
             // SSL Certificate Enhanced Key Usage property must contain Server Authentication (1.3.6.1.5.5.7.3.1).
             this.checkBoxServerAuthentication.Checked = true;
             this.checkBoxServerAuthentication.Enabled = false;
+
+            this.pictureBoxInfo.SetToolTip("Multiple Subject Alternative Names (SANs) can be specified separated by semicolons.");
         }
 
         private bool ValidateControls()

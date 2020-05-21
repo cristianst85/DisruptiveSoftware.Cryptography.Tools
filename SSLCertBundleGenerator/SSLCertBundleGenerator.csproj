@@ -112,7 +112,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Menus\information.png" />
     <Content Include="Resources\Icons\ssl_certificates.ico" />
+    <Content Include="Resources\Menus\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\GitAssemblyVersion.targets" />
