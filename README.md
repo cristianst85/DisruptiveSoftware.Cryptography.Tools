@@ -12,8 +12,7 @@ See [CHANGELOG](https://github.com/cristianst85/DisruptiveSoftware.Cryptography.
 
 ## Development
 
-* Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/vs/older-downloads/), C# 7.0 language features.
-* [Vitevic Assembly Embedder](https://marketplace.visualstudio.com/items?itemName=Vitevic.VitevicAssemblyEmbedder) v1.0.3.
+* Any edition of [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), C# 7.0 language features.
 
 ## License
 
