@@ -13,7 +13,6 @@ namespace CertUtil
         [STAThread]
         static void Main(string[] args)
         {
-            AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(AssemblyUtils.AssemblyResolver);
             InternalMain(args);
         }
 

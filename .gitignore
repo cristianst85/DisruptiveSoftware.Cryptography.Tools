@@ -261,3 +261,5 @@ __pycache__/
 *.pyc
 /SSLCertBundleGenerator/Properties/GeneratedAssemblyInfo.cs
 /CertUtil/Properties/GeneratedAssemblyInfo.cs
+*FodyWeavers.xml
+*FodyWeavers.xsd
