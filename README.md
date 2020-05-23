@@ -1,6 +1,6 @@
 # DisruptiveSoftware.Cryptography.Tools
 
-A collection of cryptographic tools.
+A collection of cryptographic tools to facilitate the generation of SSL certificates. It uses the [Bouncy Castle Crypto](https://bouncycastle.org/csharp/index.html) library.
 
 ## Repository
 
