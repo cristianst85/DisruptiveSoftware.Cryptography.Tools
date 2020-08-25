@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSSLCertBundleGenerator));
             this.groupBoxSSLOptions = new System.Windows.Forms.GroupBox();
+            this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
             this.checkBoxClientAuthentication = new System.Windows.Forms.CheckBox();
             this.checkBoxServerAuthentication = new System.Windows.Forms.CheckBox();
             this.labelSAN = new System.Windows.Forms.Label();
@@ -39,7 +40,7 @@
             this.labelSavePath = new System.Windows.Forms.Label();
             this.buttonBrowseSavePath = new System.Windows.Forms.Button();
             this.textBoxSavePath = new System.Windows.Forms.TextBox();
-            this.checkBoxCertExpCrt = new System.Windows.Forms.CheckBox();
+            this.checkBoxCertificateExportCrt = new System.Windows.Forms.CheckBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.groupBoxSubjectDN = new System.Windows.Forms.GroupBox();
@@ -68,15 +69,14 @@
             this.labelKeySize = new System.Windows.Forms.Label();
             this.labelSerialNumber = new System.Windows.Forms.Label();
             this.numericUpDownSerialNumber = new System.Windows.Forms.NumericUpDown();
-            this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
             this.groupBoxSSLOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             this.groupBoxExportOptions.SuspendLayout();
             this.groupBoxSubjectDN.SuspendLayout();
             this.mainMenu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.groupBoxCertificateOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSerialNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxSSLOptions
@@ -92,6 +92,15 @@
             this.groupBoxSSLOptions.TabIndex = 19;
             this.groupBoxSSLOptions.TabStop = false;
             this.groupBoxSSLOptions.Text = "SSL Options";
+            // 
+            // pictureBoxInfo
+            // 
+            this.pictureBoxInfo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInfo.Image")));
+            this.pictureBoxInfo.Location = new System.Drawing.Point(280, 21);
+            this.pictureBoxInfo.Name = "pictureBoxInfo";
+            this.pictureBoxInfo.Size = new System.Drawing.Size(16, 16);
+            this.pictureBoxInfo.TabIndex = 24;
+            this.pictureBoxInfo.TabStop = false;
             // 
             // checkBoxClientAuthentication
             // 
@@ -135,7 +144,7 @@
             this.groupBoxExportOptions.Controls.Add(this.labelSavePath);
             this.groupBoxExportOptions.Controls.Add(this.buttonBrowseSavePath);
             this.groupBoxExportOptions.Controls.Add(this.textBoxSavePath);
-            this.groupBoxExportOptions.Controls.Add(this.checkBoxCertExpCrt);
+            this.groupBoxExportOptions.Controls.Add(this.checkBoxCertificateExportCrt);
             this.groupBoxExportOptions.Controls.Add(this.textBoxPassword);
             this.groupBoxExportOptions.Controls.Add(this.labelPassword);
             this.groupBoxExportOptions.Location = new System.Drawing.Point(12, 359);
@@ -182,15 +191,15 @@
             this.textBoxSavePath.Size = new System.Drawing.Size(205, 20);
             this.textBoxSavePath.TabIndex = 30;
             // 
-            // checkBoxCertExpCrt
+            // checkBoxCertificateExportCrt
             // 
-            this.checkBoxCertExpCrt.AutoSize = true;
-            this.checkBoxCertExpCrt.Location = new System.Drawing.Point(11, 65);
-            this.checkBoxCertExpCrt.Name = "checkBoxCertExpCrt";
-            this.checkBoxCertExpCrt.Size = new System.Drawing.Size(258, 17);
-            this.checkBoxCertExpCrt.TabIndex = 28;
-            this.checkBoxCertExpCrt.Text = "Export Public Key Certificate to binary format (.crt)";
-            this.checkBoxCertExpCrt.UseVisualStyleBackColor = true;
+            this.checkBoxCertificateExportCrt.AutoSize = true;
+            this.checkBoxCertificateExportCrt.Location = new System.Drawing.Point(11, 65);
+            this.checkBoxCertificateExportCrt.Name = "checkBoxCertificateExportCrt";
+            this.checkBoxCertificateExportCrt.Size = new System.Drawing.Size(258, 17);
+            this.checkBoxCertificateExportCrt.TabIndex = 28;
+            this.checkBoxCertificateExportCrt.Text = "Export Public Key Certificate to binary format (.crt)";
+            this.checkBoxCertificateExportCrt.UseVisualStyleBackColor = true;
             // 
             // textBoxPassword
             // 
@@ -460,15 +469,6 @@
             0,
             0});
             // 
-            // pictureBoxInfo
-            // 
-            this.pictureBoxInfo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInfo.Image")));
-            this.pictureBoxInfo.Location = new System.Drawing.Point(280, 21);
-            this.pictureBoxInfo.Name = "pictureBoxInfo";
-            this.pictureBoxInfo.Size = new System.Drawing.Size(16, 16);
-            this.pictureBoxInfo.TabIndex = 24;
-            this.pictureBoxInfo.TabStop = false;
-            // 
             // FormSSLCertBundleGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,6 +490,7 @@
             this.Text = "SSLCertBundleGenerator {version}";
             this.groupBoxSSLOptions.ResumeLayout(false);
             this.groupBoxSSLOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();
             this.groupBoxExportOptions.ResumeLayout(false);
             this.groupBoxExportOptions.PerformLayout();
             this.groupBoxSubjectDN.ResumeLayout(false);
@@ -501,7 +502,6 @@
             this.groupBoxCertificateOptions.ResumeLayout(false);
             this.groupBoxCertificateOptions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSerialNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,7 +515,7 @@
         private System.Windows.Forms.Label labelSAN;
         private System.Windows.Forms.TextBox textBoxSAN;
         private System.Windows.Forms.GroupBox groupBoxExportOptions;
-        private System.Windows.Forms.CheckBox checkBoxCertExpCrt;
+        private System.Windows.Forms.CheckBox checkBoxCertificateExportCrt;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.GroupBox groupBoxSubjectDN;

@@ -7,6 +7,7 @@ using SSLCertBundleGenerator.Commons.Controls.Validation;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using X509Constants = DisruptiveSoftware.Cryptography.X509.Constants;
@@ -15,6 +16,8 @@ namespace SSLCertBundleGenerator
 {
     public partial class FormSSLCertBundleGenerator : Form
     {
+        private volatile bool IsClosing;
+
         public FormSSLCertBundleGenerator()
         {
             InitializeComponent();
@@ -38,6 +41,14 @@ namespace SSLCertBundleGenerator
             this.checkBoxServerAuthentication.Enabled = false;
 
             this.pictureBoxInfo.SetToolTip("Multiple Subject Alternative Names (SANs) can be specified separated by semicolons.");
+
+            // Handlers.
+            this.FormClosing += new FormClosingEventHandler(this.FormSSLCertBundleGenerator_Closing);
+        }
+
+        private void FormSSLCertBundleGenerator_Closing(object sender, FormClosingEventArgs e)
+        {
+            this.IsClosing = true;
         }
 
         private bool ValidateControls()
@@ -57,12 +68,16 @@ namespace SSLCertBundleGenerator
 
         private void ButtonGenerate_Click(object sender, EventArgs e)
         {
+            GenerateCertificatesAsync();
+        }
+
+        private async void GenerateCertificatesAsync()
+        {
             try
             {
                 if (!this.ValidateControls())
                 {
-                    this.toolStripStatusLabel.Text = "Please fill all required fields.";
-                    this.statusStrip.Update();
+                    UpdateStatusStrip("Please fill all required fields.");
                     return;
                 }
 
@@ -78,76 +93,118 @@ namespace SSLCertBundleGenerator
                     throw new Exception("Destination directory must be empty.");
                 }
 
-                this.toolStripStatusLabel.Text = "Generating Certificate files...";
-                this.statusStrip.Update();
+                UpdateStatusStrip("Generating Certificate files...");
+
+                ToogleControls(enabled: false);
 
                 var now = DateTime.UtcNow;
                 var keySize = Convert.ToUInt32(this.comboBoxKeySize.SelectedItem);
                 var validityInMonths = Convert.ToInt32(this.comboBoxValidity.SelectedItem);
                 var serialNumber = Convert.ToUInt64(this.numericUpDownSerialNumber.Value);
 
-                var certificateBuilderResult = new CACertificateBuilder()
-                    .SetSerialNumber(serialNumber - 1)
-                    .SetKeySize(keySize)
-                    .SetSubjectDN(this.textBoxCN.Text + " CA", this.textBoxOU.Text, this.textBoxO.Text, null, this.textBoxC.Text)
-                    .SetNotBefore(now)
-                    .SetNotAfter(now.AddMonths(validityInMonths))
-                    .Build();
-
-                var pkcs12Data = certificateBuilderResult.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
-
-                var sslCertificateBuilder = new SSLCertificateBuilder()
-                   .SetSerialNumber(serialNumber)
-                   .SetKeySize(keySize)
-                   .SetSubjectDN(this.textBoxCN.Text, this.textBoxOU.Text, this.textBoxO.Text, null, this.textBoxC.Text)
-                   .SetNotBefore(now)
-                   .SetNotAfter(now.AddMonths(validityInMonths))
-                   .SetIssuerCertificate(pkcs12Data, this.textBoxPassword.Text.ToSecureString());
-
-                if (this.checkBoxClientAuthentication.Checked)
+                await Task.Run(() =>
                 {
-                    sslCertificateBuilder = sslCertificateBuilder.SetClientAuthKeyUsage();
-                };
+                    var certificateBuilderResult = new CACertificateBuilder()
+                        .SetSerialNumber(serialNumber - 1)
+                        .SetKeySize(keySize)
+                        .SetSubjectDN(this.textBoxCN.Text + " CA", this.textBoxOU.Text, this.textBoxO.Text, null, this.textBoxC.Text)
+                        .SetNotBefore(now)
+                        .SetNotAfter(now.AddMonths(validityInMonths))
+                        .Build();
 
-                if (this.checkBoxServerAuthentication.Checked)
-                {
-                    sslCertificateBuilder = sslCertificateBuilder.SetServerAuthKeyUsage();
-                };
+                    var pkcs12Data = certificateBuilderResult.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
 
-                if (!this.textBoxSAN.Text.IsNullOrEmpty())
-                {
-                    var sans = this.textBoxSAN.Text.Split(';').Select(x => x.Trim()).ToList();
-                    sslCertificateBuilder = sslCertificateBuilder.SetSubjectAlternativeNames(sans);
-                };
+                    var sslCertificateBuilder = new SSLCertificateBuilder()
+                       .SetSerialNumber(serialNumber)
+                       .SetKeySize(keySize)
+                       .SetSubjectDN(this.textBoxCN.Text, this.textBoxOU.Text, this.textBoxO.Text, null, this.textBoxC.Text)
+                       .SetNotBefore(now)
+                       .SetNotAfter(now.AddMonths(validityInMonths))
+                       .SetIssuerCertificate(pkcs12Data, this.textBoxPassword.Text.ToSecureString());
 
-                var sslCertificateBuilderResult = sslCertificateBuilder.Build();
-                File.WriteAllBytes(Path.Combine(savePath, "caCertificate.p12"), pkcs12Data);
+                    if (this.checkBoxClientAuthentication.Checked)
+                    {
+                        sslCertificateBuilder = sslCertificateBuilder.SetClientAuthKeyUsage();
+                    };
 
-                if (this.checkBoxCertExpCrt.Checked)
-                {
-                    var certData = certificateBuilderResult.Certificate.ExportPublicKeyCertificate();
-                    File.WriteAllBytes(Path.Combine(savePath, "caCertificate.crt"), certData);
-                }
+                    if (this.checkBoxServerAuthentication.Checked)
+                    {
+                        sslCertificateBuilder = sslCertificateBuilder.SetServerAuthKeyUsage();
+                    };
 
-                var sslPkcs12Data = sslCertificateBuilderResult.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
-                File.WriteAllBytes(Path.Combine(savePath, "sslCertificate.p12"), sslPkcs12Data);
+                    if (!this.textBoxSAN.Text.IsNullOrEmpty())
+                    {
+                        var sans = this.textBoxSAN.Text.Split(';').Select(x => x.Trim()).ToList();
+                        sslCertificateBuilder = sslCertificateBuilder.SetSubjectAlternativeNames(sans);
+                    };
 
-                if (this.checkBoxCertExpCrt.Checked)
-                {
-                    var sslCertData = sslCertificateBuilderResult.Certificate.ExportPublicKeyCertificate();
-                    File.WriteAllBytes(Path.Combine(savePath, "sslCertificate.crt"), sslCertData);
-                }
+                    var sslCertificateBuilderResult = sslCertificateBuilder.Build();
+                    File.WriteAllBytes(Path.Combine(savePath, "caCertificate.p12"), pkcs12Data);
 
-                this.toolStripStatusLabel.Text = "Done.";
-                this.statusStrip.Update();
+                    if (this.checkBoxCertificateExportCrt.Checked)
+                    {
+                        var certData = certificateBuilderResult.Certificate.ExportPublicKeyCertificate();
+                        File.WriteAllBytes(Path.Combine(savePath, "caCertificate.crt"), certData);
+                    }
+
+                    var sslPkcs12Data = sslCertificateBuilderResult.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
+                    File.WriteAllBytes(Path.Combine(savePath, "sslCertificate.p12"), sslPkcs12Data);
+
+                    if (this.checkBoxCertificateExportCrt.Checked)
+                    {
+                        var sslCertData = sslCertificateBuilderResult.Certificate.ExportPublicKeyCertificate();
+                        File.WriteAllBytes(Path.Combine(savePath, "sslCertificate.crt"), sslCertData);
+                    }
+                });
+
+                UpdateStatusStrip("Certificates generated successfully.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, $"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                this.toolStripStatusLabel.Text = string.Empty;
-                this.statusStrip.Update();
+                UpdateStatusStrip(string.Empty);
             }
+
+            ToogleControls(enabled: true);
+        }
+
+        private void UpdateStatusStrip(string text)
+        {
+            if (!this.IsClosing)
+            {
+                this.statusStrip.InvokeIfRequired(() =>
+                {
+                    this.toolStripStatusLabel.Text = text;
+                    this.statusStrip.Update();
+                });
+            }
+        }
+
+        private void ToogleControls(bool enabled)
+        {
+            this.textBoxCN.Enabled = enabled;
+            this.textBoxO.Enabled = enabled;
+            this.textBoxOU.Enabled = enabled;
+            this.textBoxC.Enabled = enabled;
+
+            this.numericUpDownSerialNumber.Enabled = enabled;
+            this.comboBoxKeySize.Enabled = enabled;
+            this.comboBoxValidity.Enabled = enabled;
+
+            this.textBoxSAN.Enabled = enabled;
+
+            this.checkBoxClientAuthentication.Enabled = enabled;
+
+            this.textBoxPassword.Enabled = enabled;
+            this.buttonToogleShowPassword.Enabled = enabled;
+
+            this.checkBoxCertificateExportCrt.Enabled = enabled;
+
+            this.textBoxSavePath.Enabled = enabled;
+            this.buttonBrowseSavePath.Enabled = enabled;
+
+            this.buttonGenerate.Enabled = enabled;
         }
 
         private void ButtonShowPassword_Click(object sender, EventArgs e)
@@ -186,6 +243,13 @@ namespace SSLCertBundleGenerator
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.CloseApplication();
+        }
+
+        private void CloseApplication()
+        {
+            this.IsClosing = true;
+
             this.Close();
         }
     }

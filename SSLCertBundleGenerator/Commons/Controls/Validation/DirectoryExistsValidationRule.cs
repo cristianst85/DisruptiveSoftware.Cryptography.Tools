@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace SSLCertBundleGenerator.Commons.Controls.Validation
 {
-    public class DirectoryExistsValidationRule : RequiredValidationRule
+    public class DirectoryExistsValidationRule : TextRequiredValidationRule
     {
         public override bool IsValid(Control control)
         {
