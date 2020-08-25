@@ -8,7 +8,7 @@ namespace CertUtil.Commons.Controls.Validation
         {
             get
             {
-                return new RequiredValidationRule();
+                return new TextRequiredValidationRule();
             }
         }
 

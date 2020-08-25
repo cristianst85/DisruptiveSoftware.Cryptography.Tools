@@ -5,12 +5,15 @@ using DisruptiveSoftware.Cryptography.Extensions;
 using DisruptiveSoftware.Cryptography.Utils;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CertUtil
 {
     public partial class FormCertUtil : Form
     {
+        private volatile bool IsClosing;
+
         public FormCertUtil()
         {
             InitializeComponent();
@@ -32,6 +35,15 @@ namespace CertUtil
             }
 
             this.comboBoxFormat.SelectedItem = this.comboBoxFormat.Items[0];
+
+            // Handlers.
+            this.comboBoxObject.SelectionChangeCommitted += ComboBoxObject_SelectionChangeCommitted;
+            this.FormClosing += new FormClosingEventHandler(this.FormCertUtil_Closing);
+        }
+
+        private void FormCertUtil_Closing(object sender, FormClosingEventArgs e)
+        {
+            this.IsClosing = true;
         }
 
         private bool ValidateControls()
@@ -71,7 +83,7 @@ namespace CertUtil
         {
             this.comboBoxFormat.Items.Clear();
 
-            var selectedItemObject = this.comboBoxObject.SelectedItem.ToString();
+            var selectedItemObject = (string)this.comboBoxObject.SelectedItem;
 
             if (CertUtilConstants.CryptographicObjects[selectedItemObject] == CertUtilConstants.CryptographicObjectType.PublicKeyCertificate)
             {
@@ -93,63 +105,89 @@ namespace CertUtil
 
         private void ButtonExport_Click(object sender, EventArgs e)
         {
+            ExportAsync();
+        }
+
+        private async void ExportAsync()
+        {
             try
             {
                 if (!this.ValidateControls())
                 {
-                    this.toolStripStatusLabel.Text = "Please fill all required fields.";
-                    this.statusStrip.Update();
+                    UpdateStatusStrip("Please fill all required fields.");
                     return;
                 }
 
-                this.toolStripStatusLabel.Text = string.Empty;
-                this.statusStrip.Update();
+                UpdateStatusStrip(string.Empty);
 
-                byte[] certificateContent = null;
+                ToogleControls(enabled: false);
+
+                byte[] cryptographicObjectContent = null;
 
                 var saveFileDialogFilter = string.Empty;
                 var saveFileDialogFileName = Path.GetFileNameWithoutExtension(this.textBoxPath.Text);
 
-                var selectedItemObject = this.comboBoxObject.SelectedItem.ToString();
+                var selectedItemObject = (string)this.comboBoxObject.SelectedItem;
+                var selectedItemFormat = (string)this.comboBoxFormat.SelectedItem;
 
-                if (CertUtilConstants.CryptographicObjects[selectedItemObject] == CertUtilConstants.CryptographicObjectType.PublicKeyCertificate)
+                var selectedCryptographicObjectType = CertUtilConstants.CryptographicObjects[selectedItemObject];
+
+                await Task.Run(() =>
                 {
-                    var selectedItemFormat = this.comboBoxFormat.SelectedItem.ToString();
-
-                    saveFileDialogFilter = string.Format("{0}|{1}", selectedItemFormat, CertUtilConstants.PublicKeyCertificatesFormats[selectedItemFormat]);
-                    saveFileDialogFileName += CertUtilConstants.PublicKeyCertificatesFormats[selectedItemFormat].Trim('*');
-
-                    if (selectedItemFormat.Contains("Base64"))
+                    if (selectedCryptographicObjectType == CertUtilConstants.CryptographicObjectType.PublicKeyCertificate)
                     {
-                        var certificateText = CertificateUtils.ExportPublicKeyCertificateToPEM(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
-                        certificateContent = System.Text.Encoding.ASCII.GetBytes(certificateText);
-                    }
-                    else if (selectedItemFormat.Contains("Binary"))
-                    {
-                        certificateContent = CertificateUtils.ExportPublicKeyCertificate(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
-                    }
-                }
-                else if (CertUtilConstants.CryptographicObjects[selectedItemObject] == CertUtilConstants.CryptographicObjectType.PrivateKey)
-                {
-                    var selectedItemFormat = this.comboBoxFormat.SelectedItem.ToString();
+                        saveFileDialogFilter = string.Format("{0}|{1}", selectedItemFormat, CertUtilConstants.PublicKeyCertificatesFormats[selectedItemFormat]);
+                        saveFileDialogFileName += CertUtilConstants.PublicKeyCertificatesFormats[selectedItemFormat].Trim('*');
 
-                    saveFileDialogFilter = string.Format("{0}|{1}", selectedItemFormat, CertUtilConstants.PrivateKeyFormats[selectedItemFormat]);
-                    saveFileDialogFileName += CertUtilConstants.PrivateKeyFormats[selectedItemFormat].Trim('*');
+                        if (selectedItemFormat.Contains("Base64"))
+                        {
+                            var cryptographicObjectText = CertificateUtils.ExportPublicKeyCertificateToPEM(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
+                            cryptographicObjectContent = System.Text.Encoding.ASCII.GetBytes(cryptographicObjectText);
+                        }
+                        else if (selectedItemFormat.Contains("Binary"))
+                        {
+                            cryptographicObjectContent = CertificateUtils.ExportPublicKeyCertificate(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
+                        }
+                        else
+                        {
+                            throw new NotImplementedException();
+                        }
+                    }
+                    else if (selectedCryptographicObjectType == CertUtilConstants.CryptographicObjectType.PrivateKey)
+                    {
+                        saveFileDialogFilter = string.Format("{0}|{1}", selectedItemFormat, CertUtilConstants.PrivateKeyFormats[selectedItemFormat]);
+                        saveFileDialogFileName += CertUtilConstants.PrivateKeyFormats[selectedItemFormat].Trim('*');
 
-                    if (selectedItemFormat.Contains("Base64"))
-                    {
-                        var certificateText = CertificateUtils.ExportPrivateKeyToPEM(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
-                        certificateContent = System.Text.Encoding.ASCII.GetBytes(certificateText);
+                        if (selectedItemFormat.Contains("Base64"))
+                        {
+                            var cryptographicObjectText = CertificateUtils.ExportPrivateKeyToPEM(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
+
+                            if (cryptographicObjectText.IsNullOrEmpty())
+                            {
+                                throw new Exception("Certificate does not have a private key.");
+                            }
+
+                            cryptographicObjectContent = System.Text.Encoding.ASCII.GetBytes(cryptographicObjectText);
+                        }
+                        else if (selectedItemFormat.Contains("Binary"))
+                        {
+                            cryptographicObjectContent = CertificateUtils.ExportPrivateKey(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
+
+                            if (cryptographicObjectContent == null)
+                            {
+                                throw new Exception("Certificate does not have a private key.");
+                            }
+                        }
+                        else
+                        {
+                            throw new NotImplementedException();
+                        }
                     }
-                    else if (selectedItemFormat.Contains("Binary"))
+                    else
                     {
-                        certificateContent = CertificateUtils.ExportPrivateKey(File.ReadAllBytes(this.textBoxPath.Text), this.textBoxPassword.Text.ToSecureString());
+                        throw new NotImplementedException();
                     }
-                }
-                else
-                {
-                    throw new NotImplementedException();
-                }
+                });
 
                 using (var saveFileDialog = new SaveFileDialog())
                 {
@@ -165,18 +203,45 @@ namespace CertUtil
 
                         if (fileName.Length > 0)
                         {
-                            File.WriteAllBytes(fileName, certificateContent);
+                            File.WriteAllBytes(fileName, cryptographicObjectContent);
 
-                            this.toolStripStatusLabel.Text = "File has been successfully saved.";
-                            this.statusStrip.Update();
+                            UpdateStatusStrip("File has been successfully saved.");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, $"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            ToogleControls(enabled: true);
+        }
+
+        private void UpdateStatusStrip(string text)
+        {
+            if (!this.IsClosing)
+            {
+                this.statusStrip.InvokeIfRequired(() =>
+                {
+                    this.toolStripStatusLabel.Text = text;
+                    this.statusStrip.Update();
+                });
+            }
+        }
+
+        private void ToogleControls(bool enabled)
+        {
+            this.textBoxPath.Enabled = enabled;
+            this.buttonBrowsePath.Enabled = enabled;
+
+            this.textBoxPassword.Enabled = enabled;
+            this.buttonToogleShowPassword.Enabled = enabled;
+
+            this.comboBoxObject.Enabled = enabled;
+            this.comboBoxFormat.Enabled = enabled;
+
+            this.buttonExport.Enabled = enabled;
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,6 +257,13 @@ namespace CertUtil
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.CloseApplication();
+        }
+
+        private void CloseApplication()
+        {
+            this.IsClosing = true;
+
             this.Close();
         }
     }

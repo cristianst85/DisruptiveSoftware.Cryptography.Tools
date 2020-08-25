@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace CertUtil.Commons.Controls.Validation
 {
-    public class FileExistsValidationRule : RequiredValidationRule
+    public class FileExistsValidationRule : TextRequiredValidationRule
     {
         public override bool IsValid(Control control)
         {

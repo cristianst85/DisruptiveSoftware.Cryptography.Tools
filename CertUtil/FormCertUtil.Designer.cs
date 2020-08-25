@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCertUtil));
             this.labelPath = new System.Windows.Forms.Label();
-            this.groupBoxPrivateKeyFile = new System.Windows.Forms.GroupBox();
+            this.groupBoxCertificateFile = new System.Windows.Forms.GroupBox();
             this.buttonToogleShowPassword = new System.Windows.Forms.Button();
             this.buttonBrowsePath = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -50,7 +50,7 @@
             this.buttonExport = new System.Windows.Forms.Button();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.groupBoxPrivateKeyFile.SuspendLayout();
+            this.groupBoxCertificateFile.SuspendLayout();
             this.mainMenu.SuspendLayout();
             this.groupBoxExportOptions.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -65,25 +65,25 @@
             this.labelPath.TabIndex = 0;
             this.labelPath.Text = "Path:";
             // 
-            // groupBoxPrivateKeyFile
+            // groupBoxCertificateFile
             // 
-            this.groupBoxPrivateKeyFile.Controls.Add(this.buttonToogleShowPassword);
-            this.groupBoxPrivateKeyFile.Controls.Add(this.buttonBrowsePath);
-            this.groupBoxPrivateKeyFile.Controls.Add(this.textBoxPassword);
-            this.groupBoxPrivateKeyFile.Controls.Add(this.textBoxPath);
-            this.groupBoxPrivateKeyFile.Controls.Add(this.labelPassword);
-            this.groupBoxPrivateKeyFile.Controls.Add(this.labelPath);
-            this.groupBoxPrivateKeyFile.Location = new System.Drawing.Point(12, 27);
-            this.groupBoxPrivateKeyFile.Name = "groupBoxPrivateKeyFile";
-            this.groupBoxPrivateKeyFile.Size = new System.Drawing.Size(295, 78);
-            this.groupBoxPrivateKeyFile.TabIndex = 1;
-            this.groupBoxPrivateKeyFile.TabStop = false;
-            this.groupBoxPrivateKeyFile.Text = "Private Key File";
+            this.groupBoxCertificateFile.Controls.Add(this.buttonToogleShowPassword);
+            this.groupBoxCertificateFile.Controls.Add(this.buttonBrowsePath);
+            this.groupBoxCertificateFile.Controls.Add(this.textBoxPassword);
+            this.groupBoxCertificateFile.Controls.Add(this.textBoxPath);
+            this.groupBoxCertificateFile.Controls.Add(this.labelPassword);
+            this.groupBoxCertificateFile.Controls.Add(this.labelPath);
+            this.groupBoxCertificateFile.Location = new System.Drawing.Point(12, 27);
+            this.groupBoxCertificateFile.Name = "groupBoxCertificateFile";
+            this.groupBoxCertificateFile.Size = new System.Drawing.Size(295, 78);
+            this.groupBoxCertificateFile.TabIndex = 1;
+            this.groupBoxCertificateFile.TabStop = false;
+            this.groupBoxCertificateFile.Text = "Certificate File";
             // 
             // buttonToogleShowPassword
             // 
             this.buttonToogleShowPassword.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonToogleShowPassword.Location = new System.Drawing.Point(250, 44);
+            this.buttonToogleShowPassword.Location = new System.Drawing.Point(250, 45);
             this.buttonToogleShowPassword.Name = "buttonToogleShowPassword";
             this.buttonToogleShowPassword.Size = new System.Drawing.Size(34, 20);
             this.buttonToogleShowPassword.TabIndex = 30;
@@ -215,7 +215,6 @@
             this.comboBoxObject.Name = "comboBoxObject";
             this.comboBoxObject.Size = new System.Drawing.Size(175, 21);
             this.comboBoxObject.TabIndex = 32;
-            this.comboBoxObject.SelectionChangeCommitted += ComboBoxObject_SelectionChangeCommitted;
             // 
             // label2
             // 
@@ -259,7 +258,7 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.groupBoxExportOptions);
-            this.Controls.Add(this.groupBoxPrivateKeyFile);
+            this.Controls.Add(this.groupBoxCertificateFile);
             this.Controls.Add(this.mainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -268,8 +267,8 @@
             this.Name = "FormCertUtil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CertUtil {version}";
-            this.groupBoxPrivateKeyFile.ResumeLayout(false);
-            this.groupBoxPrivateKeyFile.PerformLayout();
+            this.groupBoxCertificateFile.ResumeLayout(false);
+            this.groupBoxCertificateFile.PerformLayout();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.groupBoxExportOptions.ResumeLayout(false);
@@ -284,7 +283,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelPath;
-        private System.Windows.Forms.GroupBox groupBoxPrivateKeyFile;
+        private System.Windows.Forms.GroupBox groupBoxCertificateFile;
         private System.Windows.Forms.Button buttonBrowsePath;
         private System.Windows.Forms.TextBox textBoxPath;
         private System.Windows.Forms.Button buttonToogleShowPassword;

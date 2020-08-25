@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CertUtil.Commons.Controls.Validation
 {
-    public class RequiredValidationRule : IControlValidationRule
+    public class TextRequiredValidationRule : IControlValidationRule
     {
         public virtual bool IsValid(Control control)
         {
@@ -23,12 +23,12 @@ namespace CertUtil.Commons.Controls.Validation
 
         protected virtual void InvalidateControl(Control control)
         {
-            control.BackColor = Constants.Controls.InvalidControlColor;
+            control.InvokeIfRequired(() => { control.BackColor = Constants.Controls.InvalidControlColor; });
         }
 
         protected virtual void ValidateControl(Control control)
         {
-            control.BackColor = default(Color);
+            control.InvokeIfRequired(() => { control.BackColor = default(Color); });
         }
     }
 }
