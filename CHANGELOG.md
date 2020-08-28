@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 0.2.1 (2020-08-28)
+
+- Minor UI enhancements.
+
 ## 0.2.0 (2020-05-22)
 
 - Minor UI enhancements.
