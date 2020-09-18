@@ -1,6 +1,10 @@
 # DisruptiveSoftware.Cryptography.Tools
 
-A collection of cryptographic tools to facilitate the generation of SSL certificates. It uses the [Bouncy Castle Crypto](https://bouncycastle.org/csharp/index.html) library.
+A collection of cryptographic tools to facilitate the generation/manipulation of SSL certificates. It uses the [Bouncy Castle Crypto](https://bouncycastle.org/csharp/index.html) library.
+
+## Tools
+* __SSLCertBundleGenerator__ - can be used to generate a certificate bundle: a Certificate Authority (CA) certificate and an SSL certificate that can be installed on a web server (e.g. IIS, Apache);
+* __CertUtil__ - can be used to export cryptographic objects (Private Key, Public Key Certificate) from [PKCS #12](https://en.wikipedia.org/wiki/PKCS_12) file format to a DER (binary) or to a PEM (Base64 ASCII) file format.
 
 ## Repository
 
