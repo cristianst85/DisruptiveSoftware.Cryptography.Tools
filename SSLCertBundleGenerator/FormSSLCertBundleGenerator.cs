@@ -4,6 +4,7 @@ using DisruptiveSoftware.Cryptography.X509;
 using SSLCertBundleGenerator.Commons;
 using SSLCertBundleGenerator.Commons.Controls;
 using SSLCertBundleGenerator.Commons.Controls.Validation;
+using SSLCertBundleGenerator.Extensions;
 using System;
 using System.IO;
 using System.Linq;
@@ -35,6 +36,10 @@ namespace SSLCertBundleGenerator
             // Default values.
             this.comboBoxKeySize.SelectedItem = this.comboBoxKeySize.Items[1];
             this.comboBoxValidity.SelectedItem = this.comboBoxValidity.Items[11];
+
+            this.numericUpDownSerialNumber.Maximum = long.MaxValue;
+            this.numericUpDownSerialNumber.Minimum = 2;
+            this.numericUpDownSerialNumber.Value = 2;
 
             // SSL Certificate Enhanced Key Usage property must contain Server Authentication (1.3.6.1.5.5.7.3.1).
             this.checkBoxServerAuthentication.Checked = true;
@@ -100,22 +105,22 @@ namespace SSLCertBundleGenerator
                 var now = DateTime.UtcNow;
                 var keySize = Convert.ToUInt32(this.comboBoxKeySize.SelectedItem);
                 var validityInMonths = Convert.ToInt32(this.comboBoxValidity.SelectedItem);
-                var serialNumber = Convert.ToUInt64(this.numericUpDownSerialNumber.Value);
+                var serialNumber = Convert.ToInt64(this.numericUpDownSerialNumber.Value);
 
                 await Task.Run(() =>
                 {
-                    var certificateBuilderResult = new CACertificateBuilder()
-                        .SetSerialNumber(serialNumber - 1)
+                    var certificateBuilder = new CACertificateBuilder()
+                        .WithSerialNumberConfiguration(this.checkBoxRandomSerialNumber.Checked, serialNumber - 1)
                         .SetKeySize(keySize)
                         .SetSubjectDN(this.textBoxCN.Text + " CA", this.textBoxOU.Text, this.textBoxO.Text, null, this.textBoxC.Text)
                         .SetNotBefore(now)
                         .SetNotAfter(now.AddMonths(validityInMonths))
                         .Build();
 
-                    var pkcs12Data = certificateBuilderResult.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
+                    var pkcs12Data = certificateBuilder.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
 
                     var sslCertificateBuilder = new SSLCertificateBuilder()
-                       .SetSerialNumber(serialNumber)
+                       .WithSerialNumberConfiguration(this.checkBoxRandomSerialNumber.Checked, serialNumber)
                        .SetKeySize(keySize)
                        .SetSubjectDN(this.textBoxCN.Text, this.textBoxOU.Text, this.textBoxO.Text, null, this.textBoxC.Text)
                        .SetNotBefore(now)
@@ -143,7 +148,7 @@ namespace SSLCertBundleGenerator
 
                     if (this.checkBoxCertificateExportCrt.Checked)
                     {
-                        var certData = certificateBuilderResult.Certificate.ExportPublicKeyCertificate();
+                        var certData = certificateBuilder.Certificate.ExportPublicKeyCertificate();
                         File.WriteAllBytes(Path.Combine(savePath, "caCertificate.crt"), certData);
                     }
 
@@ -188,7 +193,8 @@ namespace SSLCertBundleGenerator
             this.textBoxOU.Enabled = enabled;
             this.textBoxC.Enabled = enabled;
 
-            this.numericUpDownSerialNumber.Enabled = enabled;
+            this.numericUpDownSerialNumber.Enabled = !this.checkBoxRandomSerialNumber.Checked;
+            this.checkBoxRandomSerialNumber.Enabled = enabled;
             this.comboBoxKeySize.Enabled = enabled;
             this.comboBoxValidity.Enabled = enabled;
 
@@ -205,6 +211,11 @@ namespace SSLCertBundleGenerator
             this.buttonBrowseSavePath.Enabled = enabled;
 
             this.buttonGenerate.Enabled = enabled;
+        }
+
+        private void CheckBoxRandomSerialNumber_CheckedChanged(object sender, EventArgs e)
+        {
+            this.numericUpDownSerialNumber.Enabled = !this.checkBoxRandomSerialNumber.Checked;
         }
 
         private void ButtonShowPassword_Click(object sender, EventArgs e)
