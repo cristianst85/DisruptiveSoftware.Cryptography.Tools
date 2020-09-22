@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 0.2.2 (2020-09-22)
+
+- SSLCertBundleGenerator - Added the ability to generate certificates with random serial numbers.
+
 ## 0.2.1 (2020-08-28)
 
 - Minor UI enhancements.
