@@ -109,7 +109,7 @@ namespace SSLCertBundleGenerator
 
                 await Task.Run(() =>
                 {
-                    var certificateBuilder = new CACertificateBuilder()
+                    var certificateBuilderResult = new CACertificateBuilder()
                         .WithSerialNumberConfiguration(this.checkBoxRandomSerialNumber.Checked, serialNumber - 1)
                         .SetKeySize(keySize)
                         .SetSubjectDN(this.textBoxCN.Text + " CA", this.textBoxOU.Text, this.textBoxO.Text, null, this.textBoxC.Text)
@@ -117,7 +117,7 @@ namespace SSLCertBundleGenerator
                         .SetNotAfter(now.AddMonths(validityInMonths))
                         .Build();
 
-                    var pkcs12Data = certificateBuilder.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
+                    var pkcs12Data = certificateBuilderResult.ExportCertificate(this.textBoxPassword.Text.ToSecureString());
 
                     var sslCertificateBuilder = new SSLCertificateBuilder()
                        .WithSerialNumberConfiguration(this.checkBoxRandomSerialNumber.Checked, serialNumber)
@@ -148,7 +148,7 @@ namespace SSLCertBundleGenerator
 
                     if (this.checkBoxCertificateExportCrt.Checked)
                     {
-                        var certData = certificateBuilder.Certificate.ExportPublicKeyCertificate();
+                        var certData = certificateBuilderResult.Certificate.ExportPublicKeyCertificate();
                         File.WriteAllBytes(Path.Combine(savePath, "caCertificate.crt"), certData);
                     }
 
