@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 0.3.0 (2020-11-14)
+
+- Switch to using Portable.BouncyCastle package and update to the latest version 1.8.8.
+
 ## 0.2.2 (2020-09-22)
 
 - SSLCertBundleGenerator - Added the ability to generate certificates with random serial numbers.
