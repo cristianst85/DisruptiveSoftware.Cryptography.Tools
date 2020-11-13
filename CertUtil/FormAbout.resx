@@ -127,7 +127,7 @@ Copyright (c) 2019 - 2020, Cristian Stoica.
 https://github.com/cristianst85/DisruptiveSoftware.Cryptography
 
 BouncyCastle.Crypto library v{bouncyCastleCryptoLibVersion}
-Copyright (c) 2000 - 2017 The Legion of the Bouncy Castle Inc.
+Copyright (c) 2000 - 2020 The Legion of the Bouncy Castle Inc.
 https://www.bouncycastle.org/csharp/</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
