@@ -6,6 +6,10 @@ A collection of cryptographic tools to facilitate the generation/manipulation of
 * __SSLCertBundleGenerator__ - can be used to generate a certificate bundle: a Certificate Authority (CA) certificate and an SSL certificate that can be installed on a web server (e.g. IIS, Apache);
 * __CertUtil__ - can be used to export cryptographic objects (Private Key, Public Key Certificate) from [PKCS #12](https://en.wikipedia.org/wiki/PKCS_12) file format to a DER (binary) or to a PEM (Base64 ASCII) file format.
 
+## Requirements
+
+Microsoft Windows 7/10 with [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net47).
+
 ## Repository
 
 The main repository is hosted on [GitHub](https://github.com/cristianst85/DisruptiveSoftware.Cryptography.Tools).
