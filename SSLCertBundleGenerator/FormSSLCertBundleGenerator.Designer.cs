@@ -61,6 +61,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBoxCertificateOptions = new System.Windows.Forms.GroupBox();
+            this.checkBoxRandomSerialNumber = new System.Windows.Forms.CheckBox();
             this.labelBits = new System.Windows.Forms.Label();
             this.labelMonths = new System.Windows.Forms.Label();
             this.comboBoxValidity = new System.Windows.Forms.ComboBox();
@@ -69,7 +70,6 @@
             this.labelKeySize = new System.Windows.Forms.Label();
             this.labelSerialNumber = new System.Windows.Forms.Label();
             this.numericUpDownSerialNumber = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxRandomSerialNumber = new System.Windows.Forms.CheckBox();
             this.groupBoxSSLOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             this.groupBoxExportOptions.SuspendLayout();
@@ -385,6 +385,17 @@
             this.groupBoxCertificateOptions.TabStop = false;
             this.groupBoxCertificateOptions.Text = "Certificate Options";
             // 
+            // checkBoxRandomSerialNumber
+            // 
+            this.checkBoxRandomSerialNumber.AutoSize = true;
+            this.checkBoxRandomSerialNumber.Location = new System.Drawing.Point(232, 22);
+            this.checkBoxRandomSerialNumber.Name = "checkBoxRandomSerialNumber";
+            this.checkBoxRandomSerialNumber.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxRandomSerialNumber.TabIndex = 19;
+            this.checkBoxRandomSerialNumber.Text = "Random";
+            this.checkBoxRandomSerialNumber.UseVisualStyleBackColor = true;
+            this.checkBoxRandomSerialNumber.CheckedChanged += new System.EventHandler(this.CheckBoxRandomSerialNumber_CheckedChanged);
+            // 
             // labelBits
             // 
             this.labelBits.AutoSize = true;
@@ -460,17 +471,6 @@
             this.numericUpDownSerialNumber.Size = new System.Drawing.Size(115, 20);
             this.numericUpDownSerialNumber.TabIndex = 12;
             this.numericUpDownSerialNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // checkBoxRandomSerialNumber
-            // 
-            this.checkBoxRandomSerialNumber.AutoSize = true;
-            this.checkBoxRandomSerialNumber.Location = new System.Drawing.Point(232, 22);
-            this.checkBoxRandomSerialNumber.Name = "checkBoxRandomSerialNumber";
-            this.checkBoxRandomSerialNumber.Size = new System.Drawing.Size(66, 17);
-            this.checkBoxRandomSerialNumber.TabIndex = 19;
-            this.checkBoxRandomSerialNumber.Text = "Random";
-            this.checkBoxRandomSerialNumber.UseVisualStyleBackColor = true;
-            this.checkBoxRandomSerialNumber.CheckedChanged += new System.EventHandler(this.CheckBoxRandomSerialNumber_CheckedChanged);
             // 
             // FormSSLCertBundleGenerator
             // 
