@@ -332,7 +332,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -444,11 +444,11 @@
             // labelKeySize
             // 
             this.labelKeySize.AutoSize = true;
-            this.labelKeySize.Location = new System.Drawing.Point(52, 49);
+            this.labelKeySize.Location = new System.Drawing.Point(27, 49);
             this.labelKeySize.Name = "labelKeySize";
-            this.labelKeySize.Size = new System.Drawing.Size(51, 13);
+            this.labelKeySize.Size = new System.Drawing.Size(76, 13);
             this.labelKeySize.TabIndex = 13;
-            this.labelKeySize.Text = "Key Size:";
+            this.labelKeySize.Text = "RSA Key Size:";
             // 
             // labelSerialNumber
             // 
