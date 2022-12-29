@@ -74,9 +74,9 @@ namespace CertUtil
             }
         }
 
-        private void ButtonToogleShowPassword_Click(object sender, EventArgs e)
+        private void ButtonToggleShowPassword_Click(object sender, EventArgs e)
         {
-            this.textBoxPassword.ToogleUseSystemPasswordChar();
+            this.textBoxPassword.ToggleUseSystemPasswordChar();
         }
 
         private void ComboBoxObject_SelectionChangeCommitted(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace CertUtil
 
                 UpdateStatusStrip(string.Empty);
 
-                ToogleControls(enabled: false);
+                ToggleControls(enabled: false);
 
                 byte[] cryptographicObjectContent = null;
 
@@ -215,7 +215,7 @@ namespace CertUtil
                 MessageBox.Show(this, $"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            ToogleControls(enabled: true);
+            ToggleControls(enabled: true);
         }
 
         private void UpdateStatusStrip(string text)
@@ -230,13 +230,13 @@ namespace CertUtil
             }
         }
 
-        private void ToogleControls(bool enabled)
+        private void ToggleControls(bool enabled)
         {
             this.textBoxPath.Enabled = enabled;
             this.buttonBrowsePath.Enabled = enabled;
 
             this.textBoxPassword.Enabled = enabled;
-            this.buttonToogleShowPassword.Enabled = enabled;
+            this.buttonToggleShowPassword.Enabled = enabled;
 
             this.comboBoxObject.Enabled = enabled;
             this.comboBoxFormat.Enabled = enabled;

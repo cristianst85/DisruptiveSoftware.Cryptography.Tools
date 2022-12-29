@@ -36,7 +36,7 @@
             this.labelSAN = new System.Windows.Forms.Label();
             this.textBoxSAN = new System.Windows.Forms.TextBox();
             this.groupBoxExportOptions = new System.Windows.Forms.GroupBox();
-            this.buttonToogleShowPassword = new System.Windows.Forms.Button();
+            this.buttonToggleShowPassword = new System.Windows.Forms.Button();
             this.labelSavePath = new System.Windows.Forms.Label();
             this.buttonBrowseSavePath = new System.Windows.Forms.Button();
             this.textBoxSavePath = new System.Windows.Forms.TextBox();
@@ -141,7 +141,7 @@
             // 
             // groupBoxExportOptions
             // 
-            this.groupBoxExportOptions.Controls.Add(this.buttonToogleShowPassword);
+            this.groupBoxExportOptions.Controls.Add(this.buttonToggleShowPassword);
             this.groupBoxExportOptions.Controls.Add(this.labelSavePath);
             this.groupBoxExportOptions.Controls.Add(this.buttonBrowseSavePath);
             this.groupBoxExportOptions.Controls.Add(this.textBoxSavePath);
@@ -155,16 +155,16 @@
             this.groupBoxExportOptions.TabStop = false;
             this.groupBoxExportOptions.Text = "Export Options";
             // 
-            // buttonToogleShowPassword
+            // buttonToggleShowPassword
             // 
-            this.buttonToogleShowPassword.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonToogleShowPassword.Location = new System.Drawing.Point(280, 29);
-            this.buttonToogleShowPassword.Name = "buttonToogleShowPassword";
-            this.buttonToogleShowPassword.Size = new System.Drawing.Size(34, 20);
-            this.buttonToogleShowPassword.TabIndex = 27;
-            this.buttonToogleShowPassword.Text = "···";
-            this.buttonToogleShowPassword.UseVisualStyleBackColor = true;
-            this.buttonToogleShowPassword.Click += new System.EventHandler(this.ButtonShowPassword_Click);
+            this.buttonToggleShowPassword.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonToggleShowPassword.Location = new System.Drawing.Point(280, 29);
+            this.buttonToggleShowPassword.Name = "buttonToggleShowPassword";
+            this.buttonToggleShowPassword.Size = new System.Drawing.Size(34, 20);
+            this.buttonToggleShowPassword.TabIndex = 27;
+            this.buttonToggleShowPassword.Text = "···";
+            this.buttonToggleShowPassword.UseVisualStyleBackColor = true;
+            this.buttonToggleShowPassword.Click += new System.EventHandler(this.ButtonShowPassword_Click);
             // 
             // labelSavePath
             // 
@@ -538,7 +538,7 @@
         private System.Windows.Forms.Button buttonBrowseSavePath;
         private System.Windows.Forms.TextBox textBoxSavePath;
         private System.Windows.Forms.Label labelSavePath;
-        private System.Windows.Forms.Button buttonToogleShowPassword;
+        private System.Windows.Forms.Button buttonToggleShowPassword;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;

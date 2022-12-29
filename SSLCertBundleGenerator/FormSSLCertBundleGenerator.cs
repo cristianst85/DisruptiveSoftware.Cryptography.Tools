@@ -100,7 +100,7 @@ namespace SSLCertBundleGenerator
 
                 UpdateStatusStrip("Generating Certificate files...");
 
-                ToogleControls(enabled: false);
+                ToggleControls(enabled: false);
 
                 var now = DateTime.UtcNow;
                 var keySize = Convert.ToUInt32(this.comboBoxKeySize.SelectedItem);
@@ -171,7 +171,7 @@ namespace SSLCertBundleGenerator
                 UpdateStatusStrip(string.Empty);
             }
 
-            ToogleControls(enabled: true);
+            ToggleControls(enabled: true);
         }
 
         private void UpdateStatusStrip(string text)
@@ -186,7 +186,7 @@ namespace SSLCertBundleGenerator
             }
         }
 
-        private void ToogleControls(bool enabled)
+        private void ToggleControls(bool enabled)
         {
             this.textBoxCN.Enabled = enabled;
             this.textBoxO.Enabled = enabled;
@@ -203,7 +203,7 @@ namespace SSLCertBundleGenerator
             this.checkBoxClientAuthentication.Enabled = enabled;
 
             this.textBoxPassword.Enabled = enabled;
-            this.buttonToogleShowPassword.Enabled = enabled;
+            this.buttonToggleShowPassword.Enabled = enabled;
 
             this.checkBoxCertificateExportCrt.Enabled = enabled;
 
@@ -220,7 +220,7 @@ namespace SSLCertBundleGenerator
 
         private void ButtonShowPassword_Click(object sender, EventArgs e)
         {
-            this.textBoxPassword.ToogleUseSystemPasswordChar();
+            this.textBoxPassword.ToggleUseSystemPasswordChar();
         }
 
         private void ButtonBrowse_Click(object sender, EventArgs e)

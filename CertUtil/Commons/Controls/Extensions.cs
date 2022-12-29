@@ -11,7 +11,7 @@ namespace CertUtil.Commons.Controls
             return rule.IsValid(control);
         }
 
-        public static void ToogleUseSystemPasswordChar(this TextBox control)
+        public static void ToggleUseSystemPasswordChar(this TextBox control)
         {
             control.UseSystemPasswordChar = !control.UseSystemPasswordChar;
         }

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCertUtil));
             this.labelPath = new System.Windows.Forms.Label();
             this.groupBoxCertificateFile = new System.Windows.Forms.GroupBox();
-            this.buttonToogleShowPassword = new System.Windows.Forms.Button();
+            this.buttonToggleShowPassword = new System.Windows.Forms.Button();
             this.buttonBrowsePath = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxPath = new System.Windows.Forms.TextBox();
@@ -67,7 +67,7 @@
             // 
             // groupBoxCertificateFile
             // 
-            this.groupBoxCertificateFile.Controls.Add(this.buttonToogleShowPassword);
+            this.groupBoxCertificateFile.Controls.Add(this.buttonToggleShowPassword);
             this.groupBoxCertificateFile.Controls.Add(this.buttonBrowsePath);
             this.groupBoxCertificateFile.Controls.Add(this.textBoxPassword);
             this.groupBoxCertificateFile.Controls.Add(this.textBoxPath);
@@ -80,16 +80,16 @@
             this.groupBoxCertificateFile.TabStop = false;
             this.groupBoxCertificateFile.Text = "Certificate File";
             // 
-            // buttonToogleShowPassword
+            // buttonToggleShowPassword
             // 
-            this.buttonToogleShowPassword.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonToogleShowPassword.Location = new System.Drawing.Point(250, 45);
-            this.buttonToogleShowPassword.Name = "buttonToogleShowPassword";
-            this.buttonToogleShowPassword.Size = new System.Drawing.Size(34, 20);
-            this.buttonToogleShowPassword.TabIndex = 30;
-            this.buttonToogleShowPassword.Text = "···";
-            this.buttonToogleShowPassword.UseVisualStyleBackColor = true;
-            this.buttonToogleShowPassword.Click += new System.EventHandler(this.ButtonToogleShowPassword_Click);
+            this.buttonToggleShowPassword.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonToggleShowPassword.Location = new System.Drawing.Point(250, 45);
+            this.buttonToggleShowPassword.Name = "buttonToggleShowPassword";
+            this.buttonToggleShowPassword.Size = new System.Drawing.Size(34, 20);
+            this.buttonToggleShowPassword.TabIndex = 30;
+            this.buttonToggleShowPassword.Text = "···";
+            this.buttonToggleShowPassword.UseVisualStyleBackColor = true;
+            this.buttonToggleShowPassword.Click += new System.EventHandler(this.ButtonToggleShowPassword_Click);
             // 
             // buttonBrowsePath
             // 
@@ -147,7 +147,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -286,7 +286,7 @@
         private System.Windows.Forms.GroupBox groupBoxCertificateFile;
         private System.Windows.Forms.Button buttonBrowsePath;
         private System.Windows.Forms.TextBox textBoxPath;
-        private System.Windows.Forms.Button buttonToogleShowPassword;
+        private System.Windows.Forms.Button buttonToggleShowPassword;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.MenuStrip mainMenu;
