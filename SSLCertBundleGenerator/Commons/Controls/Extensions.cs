@@ -30,7 +30,7 @@ namespace SSLCertBundleGenerator.Commons.Controls
             ((ISynchronizeInvoke)control).InvokeIfRequired(action);
         }
 
-        public static void InvokeIfRequired(this ISynchronizeInvoke obj, MethodInvoker action)
+        private static void InvokeIfRequired(this ISynchronizeInvoke obj, MethodInvoker action)
         {
             if (obj.InvokeRequired)
             {
