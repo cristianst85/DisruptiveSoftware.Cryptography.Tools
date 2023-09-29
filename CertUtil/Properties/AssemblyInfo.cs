@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Cristian Stoica")]
 [assembly: AssemblyProduct("CertUtil")]
-[assembly: AssemblyCopyright("Copyright © 2019-2020 Cristian Stoica")]
+[assembly: AssemblyCopyright("Copyright © 2019-2023 Cristian Stoica")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

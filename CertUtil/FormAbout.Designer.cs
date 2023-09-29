@@ -122,7 +122,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(256, 15);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Copyright (c) 2019-2020, Cristian Stoica.\r\n";
+            this.label3.Text = "Copyright (c) 2019-2023 Cristian Stoica.\r\n";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormAbout
