@@ -13,9 +13,7 @@
       SetAssemblyVersionClean
     </CleanDependsOn>
   </PropertyGroup>
-  
-  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets" />
-  
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets" /> 
   <Target Name="ReadAssemblyVersion">
     <ReadLinesFromFile File="$(AssemblyInfoFile)">
       <Output TaskParameter="Lines" ItemName="ItemsFromFile"/>
@@ -42,7 +40,7 @@
     <PropertyGroup Condition="'$(IsDirty)'==False">
       <Dirty />
     </PropertyGroup>
-    <AssemblyInfo CodeLanguage="CS" OutputFile="$(GeneratedAssemblyInfoFile)" AssemblyInformationalVersion="$(AssemblyVersion)-$(CommitHash)$(Dirty)" />
+    <AssemblyInfo CodeLanguage="CS" OutputFile="$(GeneratedAssemblyInfoFile)" AssemblyInformationalVersion="$(AssemblyVersion)+$(CommitHash)$(Dirty)" />
   </Target>
   <Target Name="SetAssemblyVersionClean" Condition="Exists($(GeneratedAssemblyInfoFile))">
     <Delete Files="$(GeneratedAssemblyInfoFile)" />
