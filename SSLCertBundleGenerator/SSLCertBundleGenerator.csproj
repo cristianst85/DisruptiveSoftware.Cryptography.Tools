@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons\EnvironmentUtils.cs" />
+    <Compile Include="Extensions\AssemblyInformationalVersionAttributeExtensions.cs" />
     <Compile Include="Extensions\X509CertificateBuilderExtensions.cs" />
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CertUtil.Extensions;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -22,6 +23,12 @@ namespace CertUtil.Commons
             return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
         }
 
+        public static string GetProductVersion(string assemblyName)
+        {
+            var attributes = Assembly.Load(assemblyName).GetCustomAttributes(typeof(AssemblyInformationalVersionAttribute), false);
+            return attributes.Length == 0 ? GetVersion(assemblyName).ToString() : ((AssemblyInformationalVersionAttribute)attributes[0]).GetInformationalVersion(true);
+        }
+
         public static Version GetVersion()
         {
             return Assembly.GetExecutingAssembly().GetName().Version;
@@ -34,7 +41,7 @@ namespace CertUtil.Commons
 
         public static Assembly AssemblyResolver(object sender, ResolveEventArgs args)
         {
-            string resourceName = new AssemblyName(args.Name).Name + ".dll";
+            string resourceName = args.Name.EndsWith(".dll") ? args.Name : new AssemblyName(args.Name).Name + ".dll";
             string resource = Array.Find(Assembly.GetExecutingAssembly().GetManifestResourceNames(), element => element.EndsWith(resourceName));
 
             if (resource != null)

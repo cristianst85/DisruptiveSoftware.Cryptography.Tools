@@ -13,8 +13,8 @@ namespace CertUtil
             var version = AssemblyUtils.GetProductVersion();
 
             this.labelVersion.Text = this.labelVersion.Text.Replace("{version}", version);
-            this.richTextBoxCopyright.Text = this.richTextBoxCopyright.Text.Replace("{bouncyCastleCryptographyLibVersion}", AssemblyUtils.GetVersion("BouncyCastle.Cryptography").ToString());
-            this.richTextBoxCopyright.Text = this.richTextBoxCopyright.Text.Replace("{disruptiveSoftwareCryptographyLibVersion}", AssemblyUtils.GetVersion("DisruptiveSoftware.Cryptography").ToString());
+            this.richTextBoxCopyright.Text = this.richTextBoxCopyright.Text.Replace("{bouncyCastleCryptographyLibVersion}", AssemblyUtils.GetProductVersion("BouncyCastle.Cryptography").ToString());
+            this.richTextBoxCopyright.Text = this.richTextBoxCopyright.Text.Replace("{disruptiveSoftwareCryptographyLibVersion}", AssemblyUtils.GetProductVersion("DisruptiveSoftware.Cryptography").ToString());
 
             this.KeyDown += new KeyEventHandler(FormAbout_KeyPress);
 

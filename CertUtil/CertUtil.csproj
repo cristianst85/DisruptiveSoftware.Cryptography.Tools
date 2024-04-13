@@ -59,6 +59,7 @@
     <Compile Include="Commons\Controls\Validation\ValidationRules.cs" />
     <Compile Include="Commons\EnvironmentUtils.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Extensions\AssemblyInformationalVersionAttributeExtensions.cs" />
     <Compile Include="FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>
